@@ -23,28 +23,26 @@ export default class App extends Component {
     const operation = event.target.name;
     switch (operation) {
       case "+":
-        this.setState({result: num1 + num2,});
+        this.setState({ result: num1 + num2 });
         break;
       case "-":
-        this.setState({result: num1 - num2,});
+        this.setState({ result: num1 - num2 });
         break;
       case "*":
-        this.setState({result: num1 * num2,});
+        this.setState({ result: num1 * num2 });
         break;
       case "/":
-        if(num2!==0){
-          this.setState({result: num1 / num2,});
+        if (num2 !== 0) {
+          this.setState({ result: num1 / num2 });
+        } else {
+          alert("You can't divide a number by zero");
         }
-        else{alert("you cant divide a number by zero");}
         break;
-
       default:
         break;
     }
   };
-
   render() {
-    console.log(this.state.a);
     return (
       <div className="container">
         <Input
@@ -59,42 +57,25 @@ export default class App extends Component {
           name="b"
           value={this.state.b}
           onChange={this.handleChange}
-          label="Enter second Number"
+          label="Enter Second Number"
         />
         <div className="buttonContainer">
-          <Button
-            type="button"
-            name="+"
-            onClick={this.handleClick}
-            heading="Add"
-            Children="+"
-          />
-          <Button
-            type="button"
-            name="-"
-            onClick={this.handleClick}
-            heading="Subtract"
-            Children="-"
-          />
-          <Button
-            type="button"
-            name="*"
-            onClick={this.handleClick}
-            heading="Multiplicate"
-            Children="*"
-          />
-          <Button
-            type="button"
-            name="/"
-            onClick={this.handleClick}
-            heading="Divide"
-            Children="/"
-          />
+          <Button type="button" name="+" onClick={this.handleClick}>
+            Add
+          </Button>
+          <Button type="button" name="-" onClick={this.handleClick}>
+            Subtract
+          </Button>
+          <Button type="button" name="*" onClick={this.handleClick}>
+            Multiply
+          </Button>
+          <Button type="button" name="/" onClick={this.handleClick}>
+            Divide
+          </Button>
         </div>
-
-        <p>{`A : ${this.state.a}`}</p>
-        <p>{`B : ${this.state.b}`}</p>
-        <p>{`Output : ${this.state.result}`}</p>
+        <p>{`A: ${this.state.a}`}</p>
+        <p>{`B: ${this.state.b}`}</p>
+        <p>{`Output: ${this.state.result}`}</p>
       </div>
     );
   }
